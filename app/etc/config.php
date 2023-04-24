@@ -348,6 +348,7 @@ return [
         'Learning_FirstUnit' => 1,
         'Learning_HelloPage' => 1,
         'Learning_Js' => 1,
+        'Learning_Warranty' => 1,
         'MagePal_Core' => 0,
         'MagePal_GmailSmtpApp' => 1,
         'Magefan_AdminUserGuide' => 1,
