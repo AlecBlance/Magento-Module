@@ -1,17 +1,9 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-// phpcs:disable Magento2.Templates.ThisInTemplate
-// phpcs:disable Generic.Files.LineLength.TooLong
-
-/** @var \Magento\Contact\Block\ContactForm $block */
-/** @var \Magento\Contact\ViewModel\UserDataProvider $viewModel */
 
 $viewModel = $block->getViewModel();
+
 ?>
+
 <form class="form warranty"
       action="<?= $block->escapeUrl($block->getFormAction()) ?>"
       id="warranty-form"
@@ -51,8 +43,8 @@ $viewModel = $block->getViewModel();
         <div class="field order required">
             <label class="label" for="order"><span><?= $block->escapeHtml(__('Order #')) ?></span></label>
             <div class="control">
-                <input name="order"
-                       id="order"
+                <input name="order_id"
+                       id="order_id"
                        title="<?= $block->escapeHtmlAttr(__('Order')) ?>"
                        value=""
                        class="input-text"
@@ -72,13 +64,13 @@ $viewModel = $block->getViewModel();
                        data-validate="{required:true}"/>
             </div>
         </div>
-        <div class="field comment required">
-            <label class="label" for="comment">
+        <div class="field info required">
+            <label class="label" for="info">
                 <span><?= $block->escapeHtml(__('Warranty Information')) ?></span>
             </label>
             <div class="control">
-                <textarea name="comment"
-                          id="comment"
+                <textarea name="info"
+                          id="info"
                           title="<?= $block->escapeHtmlAttr(__('Warranty Information')) ?>"
                           class="input-text"
                           cols="5"

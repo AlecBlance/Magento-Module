@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Magento_Sales::warranty" title="Warranty" module="Learning_Warranty" sortOrder="20" parent="Magento_Sales::sales" action="warranty/index/index" resource="Magento_Sales::sales"/>
+    </menu>
+</config>

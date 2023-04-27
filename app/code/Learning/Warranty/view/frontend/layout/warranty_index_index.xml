@@ -12,7 +12,9 @@
     <body>
         <referenceContainer name="content">
             <block class="Learning\Warranty\Block\WarrantyForm" name="warrantyform" template="Learning_Warranty::form.phtml">
-                <container name="form.additional.info" label="Form Additional Info"/>
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Learning\Warranty\ViewModel\WarrantyForm</argument>
+                </arguments>
             </block>
         </referenceContainer>
     </body>

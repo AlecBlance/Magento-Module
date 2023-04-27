@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Learning\Warranty\Api\Data\SalesInterface" type="Learning\Warranty\Model\Sales" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="learning_warranty_listing_data_source" xsi:type="string">WarrantyCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="WarrantyCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">warranty_records</argument>
+            <argument name="resourceModel" xsi:type="string">Learning\Warranty\Model\ResourceModel\Records</argument>
+        </arguments>
+    </virtualType>
+    
+</config>
