@@ -129,13 +129,13 @@
                 <label translate="true">Warranty Info</label>
             </settings>
        </column>
-       <column name="validated">
+       <column name="status">
            <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="options" xsi:type="object">Learning\Warranty\Model\Source\Approved</item>
                 <item name="config" xsi:type="array">
                     <item name="sortOrder" xsi:type="number">60</item>
                     <item name="filter" xsi:type="string">select</item>
-                    <item name="label" translate="true" xsi:type="string">Validated</item>
+                    <item name="label" translate="true" xsi:type="string">Status</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <item name="dataType" xsi:type="string">select</item>
                     <item name="editor" xsi:type="array">

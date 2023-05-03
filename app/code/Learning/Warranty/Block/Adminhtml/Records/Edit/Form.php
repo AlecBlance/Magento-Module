@@ -95,14 +95,14 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ]
         );
         $fieldset->addField(
-            'validated',
+            'status',
             'select',
             [
-                'name' => 'validated',
+                'name' => 'status',
                 'label' => __('Validated'),
-                'id' => 'validated',
+                'id' => 'status',
                 'title' => __('Validated'),
-                'class' => 'required-entry validated',
+                'class' => 'required-entry status',
                 'values' => $this->_approved->toOptionArray(),
                 'required' => true,
             ]

@@ -8,7 +8,8 @@ xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/et
         <column xsi:type="varchar" name="name" nullable="false" length="255"/>
         <column xsi:type="varchar" name="email" nullable="false" length="255"/>
         <column xsi:type="varchar" name="info" nullable="false" length="255"/>
-        <column xsi:type="boolean" name="validated" nullable="true"/>
+        <column xsi:type="int" name="status" nullable="false" default="0"/>
+        <column xsi:type="boolean" name="notified" nullable="false" default="0"/>
         <column xsi:type="datetime" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="warranty_id"/>

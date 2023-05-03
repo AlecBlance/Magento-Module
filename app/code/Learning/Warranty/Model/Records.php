@@ -57,9 +57,9 @@ class Records extends AbstractModel implements RecordsInterface, IdentityInterfa
         return [self::CACHE_TAG . '_' . $this->getItemId()];
     }
 
-    public function setTitle($title)
+    public function setNotified() 
     {
-        return $this->setData(self::TITLE, $title);
-    } 
+        return $this->setData(self::NOTIFIED, "1");
+    }
 
 }

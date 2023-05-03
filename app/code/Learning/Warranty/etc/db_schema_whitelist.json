@@ -7,7 +7,8 @@
             "name": true,
             "email": true,
             "info": true,
-            "validated": true,
+            "status": true,
+            "notified": true,
             "created_at": true
         },
         "constraint": {

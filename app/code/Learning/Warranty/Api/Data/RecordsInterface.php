@@ -10,6 +10,7 @@ interface RecordsInterface
     const EMAIL               = 'email';
     const NAME                = 'name';
     const INFO                = 'info';
+    const NOTIFIED            = 'notified';
 
 
     public function getSku();
@@ -24,5 +25,7 @@ interface RecordsInterface
 
     public function getName();
 
+    public function getIdentities();
 
+    public function setNotified();
 }
