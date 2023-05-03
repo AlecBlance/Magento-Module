@@ -4,10 +4,9 @@ namespace Learning\Warranty\Block\Adminhtml\Records\Edit;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
+    protected $systemStore;
 
-    protected $_systemStore;
-
-    protected $_approved;
+    protected $approved;
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
@@ -16,23 +15,35 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,
         \Learning\Warranty\Model\Source\Approved $approved,
         array $data = []
-    )
-    {
+    ) {
         $this->_wysiwygConfig = $wysiwygConfig;
-        $this->_approved = $approved;
+        $this->approved = $approved;
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
-    protected function _prepareForm()
+    protected function prepareForm()
     {
         $model = $this->_coreRegistry->registry('row_data');
-        $form = $this->_formFactory->create(['data' => ['id' => 'edit_form', 'enctype' => 'multipart/form-data', 'action' => $this->getData('action'), 'method' => 'post']]);
+        $form = $this->_formFactory->create(
+            ['data' => [
+                'id' => 'edit_form',
+                'enctype' => 'multipart/form-data',
+                'action' => $this->getData('action'),
+                'method' => 'post']
+            ]
+        );
         $form->setHtmlIdPrefix('learning_warranty');
         if ($model) {
-            $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Warranty Details'), 'class' => 'fieldset-wide']);
+            $fieldset = $form->addFieldset(
+                'base_fieldset',
+                ['legend' => __('Warranty Details'), 'class' => 'fieldset-wide']
+            );
             $fieldset->addField('warranty_id', 'hidden', ['name' => 'warranty_id']);
         } else {
-            $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Warranty Details'), 'class' => 'fieldset-wide']);
+            $fieldset = $form->addFieldset(
+                'base_fieldset',
+                ['legend' => __('Warranty Details'), 'class' => 'fieldset-wide']
+            );
         }
         $fieldset->addField(
             'order_id',
@@ -103,13 +114,13 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'id' => 'status',
                 'title' => __('Validated'),
                 'class' => 'required-entry status',
-                'values' => $this->_approved->toOptionArray(),
+                'values' => $this->approved->toOptionArray(),
                 'required' => true,
             ]
         );
         $form->setValues($model ? $model->getData() : '');
         $form->setUseContainer(true);
         $this->setForm($form);
-        return parent::_prepareForm();
+        return parent::prepareForm();
     }
 }

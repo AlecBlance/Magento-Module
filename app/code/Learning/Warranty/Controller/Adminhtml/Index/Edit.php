@@ -10,22 +10,20 @@ use Learning\Warranty\Model\RecordsFactory;
 
 class Edit extends Action
 {
-
     private $pageFactory;
 
-    protected $_recordsFactory;
+    protected $recordsFactory;
 
     private $coreRegistry;
 
     public function __construct(
         Context $context,
         PageFactory $rawFactory,
-        RecordsFactory $_recordsFactory,
+        RecordsFactory $recordsFactory,
         \Magento\Framework\Registry $coreRegistry
-    )
-    {
+    ) {
         $this->pageFactory = $rawFactory;
-        $this->_recordsFactory = $_recordsFactory;
+        $this->recordsFactory = $recordsFactory;
         $this->coreRegistry = $coreRegistry;
         parent::__construct($context);
     }
@@ -38,7 +36,7 @@ class Edit extends Action
         $rowData = '';
 
         if ($rowId) {
-            $rowData = $this->_recordsFactory->create()->load($rowId);
+            $rowData = $this->recordsFactory->create()->load($rowId);
             if (!$rowData->getId()) {
                 $this->messageManager->addError(__('row data no longer exist.'));
                 $this->_redirect('warranty/index/index');
@@ -50,7 +48,7 @@ class Edit extends Action
         return $resultPage;
     }
 
-    protected function _isAllowed()
+    protected function isAllowed()
     {
         return $this->_authorization->isAllowed('Magento_Sales::warranty');
     }

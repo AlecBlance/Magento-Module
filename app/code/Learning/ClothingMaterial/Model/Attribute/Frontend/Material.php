@@ -1,4 +1,5 @@
 <?php
+
 namespace Learning\ClothingMaterial\Model\Attribute\Frontend;
 
 use Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend;

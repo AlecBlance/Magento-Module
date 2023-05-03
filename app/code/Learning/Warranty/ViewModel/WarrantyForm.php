@@ -6,13 +6,11 @@ use Learning\Warranty\Helper\SalesData;
 
 class WarrantyForm implements \Magento\Framework\View\Element\Block\ArgumentInterface
 {
-
     protected $helper;
 
     public function __construct(
         SalesData $helper
-    )
-    {
+    ) {
         $this->helper  = $helper;
     }
 
@@ -20,5 +18,4 @@ class WarrantyForm implements \Magento\Framework\View\Element\Block\ArgumentInte
     {
         return $this->helper->getAllWarranty();
     }
-
 }

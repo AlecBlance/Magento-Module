@@ -2,16 +2,14 @@
 
 namespace Learning\Warranty\Helper;
 
-use \Magento\Framework\App\Helper\AbstractHelper;
-use \Learning\Warranty\Model\RecordsFactory as RecordsFactory;
-use \Learning\Warranty\Model\ResourceModel\Records\CollectionFactory as RecordsCollectionFactory;
-
+use Magento\Framework\App\Helper\AbstractHelper;
+use Learning\Warranty\Model\RecordsFactory as RecordsFactory;
+use Learning\Warranty\Model\ResourceModel\Records\CollectionFactory as RecordsCollectionFactory;
 
 class WarrantyData extends AbstractHelper
 {
-
-    protected $_recordsFactory = null;
-    protected $_recordsCollectionFactory = null;
+    protected $recordsFactory = null;
+    protected $recordsCollectionFactory = null;
     protected $date;
     protected $validated = null;
 
@@ -19,30 +17,29 @@ class WarrantyData extends AbstractHelper
         RecordsFactory $recordsFactory,
         RecordsCollectionFactory $recordsCollectionFactory,
         \Magento\Framework\Stdlib\DateTime\TimezoneInterface $date
-    )
-    {
+    ) {
         $this->date = $date;
-        $this->_recordsFactory  = $recordsFactory;
-        $this->_recordsCollectionFactory  = $recordsCollectionFactory;
+        $this->recordsFactory  = $recordsFactory;
+        $this->recordsCollectionFactory  = $recordsCollectionFactory;
     }
 
     public function getAllRecords()
     {
-        $recordsCollection = $this->_recordsFactory ->create();
+        $recordsCollection = $this->recordsFactory ->create();
         $recordsCollection->addFieldToSelect('*')->load();
         return $recordsCollection->getItems();
     }
 
-    public function setRecord($record) 
+    public function setRecord($record)
     {
-        $recordsCollection = $this->_recordsFactory ->create();
+        $recordsCollection = $this->recordsFactory ->create();
         $result = $recordsCollection->setData($record);
         $result->save();
     }
 
-    public function isUnvalidatedPresent() 
+    public function isUnvalidatedPresent()
     {
-        $recordsCollection = $this->_recordsCollectionFactory ->create();
+        $recordsCollection = $this->recordsCollectionFactory ->create();
         $date = $this->date->date()->modify('-1 day')->format('Y-m-d H:i:s');
         $recordsCollection->addFieldToFilter('status', ['eq' => '0'])
                         ->addFieldToFilter('created_at', ['lteq' => $date])
@@ -51,17 +48,16 @@ class WarrantyData extends AbstractHelper
         return $recordsCollection->count();
     }
 
-    public function setNotified() 
+    public function setNotified()
     {
-        foreach($this->unvalidated as $record) {
+        foreach ($this->unvalidated as $record) {
             $record->setNotified();
             $record->save();
         }
     }
 
-    public function getUnvalidated() 
+    public function getUnvalidated()
     {
         return $this->unvalidated;
     }
-
 }

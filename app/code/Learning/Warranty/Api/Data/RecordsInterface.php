@@ -1,16 +1,16 @@
 <?php
+
 namespace Learning\Warranty\Api\Data;
 
 interface RecordsInterface
 {
-
-    const WARRANTY_ID         = 'warranty_id';
-    const ORDER_ID            = 'order_id';
-    const SKU                 = 'sku';
-    const EMAIL               = 'email';
-    const NAME                = 'name';
-    const INFO                = 'info';
-    const NOTIFIED            = 'notified';
+    private const WARRANTY_ID         = 'warranty_id';
+    private const ORDER_ID            = 'order_id';
+    private const SKU                 = 'sku';
+    private const EMAIL               = 'email';
+    private const NAME                = 'name';
+    private const INFO                = 'info';
+    private const NOTIFIED            = 'notified';
 
 
     public function getSku();

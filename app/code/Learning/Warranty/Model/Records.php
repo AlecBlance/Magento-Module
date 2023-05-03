@@ -2,27 +2,27 @@
 
 namespace Learning\Warranty\Model;
 
-use \Magento\Framework\Model\AbstractModel;
-use \Magento\Framework\DataObject\IdentityInterface;
-use \Learning\Warranty\Api\Data\RecordsInterface;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\DataObject\IdentityInterface;
+use Learning\Warranty\Api\Data\RecordsInterface;
 
 class Records extends AbstractModel implements RecordsInterface, IdentityInterface
 {
     /**
      * Cache tag
      */
-    const CACHE_TAG = 'learning_warranty_records';
+    private const CACHE_TAG = 'learning_warranty_records';
 
     /**
      * Post Initialization
      * @return void
      */
-    protected function _construct()
+    protected function __construct()
     {
         $this->_init('Learning\Warranty\Model\ResourceModel\Records');
     }
 
-    public function getSku() 
+    public function getSku()
     {
         return $this->getData(self::SKU);
     }
@@ -57,9 +57,8 @@ class Records extends AbstractModel implements RecordsInterface, IdentityInterfa
         return [self::CACHE_TAG . '_' . $this->getItemId()];
     }
 
-    public function setNotified() 
+    public function setNotified()
     {
         return $this->setData(self::NOTIFIED, "1");
     }
-
 }

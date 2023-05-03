@@ -6,15 +6,13 @@ use Learning\Warranty\Model\RecordsFactory;
 
 class Save extends \Magento\Backend\App\Action
 {
-    
-    protected $_recordsFactory;
+    protected $recordsFactory;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         RecordsFactory $recordsFactory
-    )
-    {
-        $this->_recordsFactory = $recordsFactory;
+    ) {
+        $this->recordsFactory = $recordsFactory;
         parent::__construct($context);
     }
 
@@ -26,7 +24,7 @@ class Save extends \Magento\Backend\App\Action
             $this->_redirect('warranty/index/index');
         }
         try {
-            $rowData = $this->_recordsFactory->create()->load($reviewId);
+            $rowData = $this->recordsFactory->create()->load($reviewId);
             if (!$rowData->getId() && $reviewId) {
                 $this->messageManager->addError(__('row data no longer exist.'));
                 $this->_redirect('warranty/index/index');
@@ -40,7 +38,7 @@ class Save extends \Magento\Backend\App\Action
         $this->_redirect('warranty/index/index');
     }
 
-    protected function _isAllowed()
+    protected function isAllowed()
     {
         return $this->_authorization->isAllowed('Magento_Sales::warranty');
     }

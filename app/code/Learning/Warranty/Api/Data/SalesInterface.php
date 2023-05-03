@@ -1,12 +1,12 @@
 <?php
+
 namespace Learning\Warranty\Api\Data;
 
 interface SalesInterface
 {
-
-    const ITEM_ID             = 'item_id';
-    const ORDER_ID            = 'order_id';
-    const SKU                 = 'sku';
+    private const ITEM_ID             = 'item_id';
+    private const ORDER_ID            = 'order_id';
+    private const SKU                 = 'sku';
 
     public function getSku();
 
