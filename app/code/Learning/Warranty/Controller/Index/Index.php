@@ -1,5 +1,4 @@
 <?php
-
 namespace Learning\Warranty\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
@@ -8,13 +7,14 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-    protected $resultPageFactory;
+
+    protected $_resultPageFactory;
 
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
     ) {
-        $this->resultPageFactory = $resultPageFactory;
+        $this->_resultPageFactory = $resultPageFactory;
         parent::__construct(
             $context
         );
@@ -22,8 +22,8 @@ class Index extends Action
 
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->addHandle('warranty_index_index');
-        return $resultPage;
+       $resultPage = $this->_resultPageFactory->create();
+       $resultPage->addHandle('warranty_index_index'); //loads the layout of module_custom_customlayout.xml file with its name
+       return $resultPage;
     }
 }

@@ -10,12 +10,13 @@ use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\DataObject;
-use Learning\Warranty\Helper\SalesData;
-use Learning\Warranty\Helper\WarrantyData;
-use Learning\Warranty\Helper\EmailData;
+use Learning\Warranty\Helper\SalesData; 
+use Learning\Warranty\Helper\WarrantyData; 
+use Learning\Warranty\Helper\EmailData; 
 
 class Post extends \Magento\Framework\App\Action\Action implements HttpPostActionInterface
 {
+
     private $dataPersistor;
     private $context;
     private $helper;
@@ -44,6 +45,7 @@ class Post extends \Magento\Framework\App\Action\Action implements HttpPostActio
             return $this->resultRedirectFactory->create()->setPath('*/*/');
         }
         try {
+            
             $this->validatedParams();
             $data = $this->getRequest()->getParams();
             $this->messageManager->addSuccessMessage(
@@ -55,7 +57,7 @@ class Post extends \Magento\Framework\App\Action\Action implements HttpPostActio
         } catch (LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
             $this->dataPersistor->set('warranty', $this->getRequest()->getParams());
-        }
+        } 
         return $this->resultRedirectFactory->create()->setPath('warranty/index/index');
     }
 
@@ -86,4 +88,5 @@ class Post extends \Magento\Framework\App\Action\Action implements HttpPostActio
         }
         return $request->getParams();
     }
+
 }

@@ -19,7 +19,8 @@ class EmailData extends AbstractHelper
         TransportBuilder $transportBuilder,
         StoreManagerInterface $storeManager,
         StateInterface $state
-    ) {
+    )
+    {
         $this->transportBuilder = $transportBuilder;
         $this->storeManager = $storeManager;
         $this->inlineTranslation = $state;
@@ -75,6 +76,7 @@ class EmailData extends AbstractHelper
         $toEmail =  'blancealec1@gmail.com'; // receiver email id
 
         try {
+
             $templateVars = [];
 
             $storeId = $this->storeManager->getStore()->getId();

@@ -1,7 +1,6 @@
 <?php
 
 namespace Learning\ClothingMaterial\Model\Attribute\Source;
-
 use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 
 class Material extends AbstractSource

@@ -7,26 +7,28 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
-    protected $resultPageFactory;
+
+    protected $_resultPageFactory;
 
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory
-    ) {
+    ) 
+    {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
+        $this->_resultPageFactory = $resultPageFactory;
     }
 
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
+        $resultPage = $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Magento_Sales::warranty');
         $resultPage->getConfig()->getTitle()->prepend(__('Warranty'));
 
         return $resultPage;
     }
 
-    protected function isAllowed()
+    protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Magento_Sales::warranty');
     }

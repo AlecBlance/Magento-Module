@@ -10,20 +10,22 @@ use Learning\Warranty\Model\RecordsFactory;
 
 class NewAction extends Action
 {
+   
     private $pageFactory;
 
-    protected $recordsFactory;
+    protected $_recordsFactory;
 
     private $coreRegistry;
 
     public function __construct(
         Context $context,
         PageFactory $rawFactory,
-        RecordsFactory $recordsFactory,
+        RecordsFactory $_recordsFactory,
         \Magento\Framework\Registry $coreRegistry
-    ) {
+    )
+    {
         $this->pageFactory = $rawFactory;
-        $this->recordsFactory = $recordsFactory;
+        $this->_recordsFactory = $_recordsFactory;
         $this->coreRegistry = $coreRegistry;
         parent::__construct($context);
     }
@@ -37,7 +39,7 @@ class NewAction extends Action
         return $resultPage;
     }
 
-    protected function isAllowed()
+    protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Magento_Sales::warranty');
     }

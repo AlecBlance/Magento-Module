@@ -1,5 +1,4 @@
 <?php
-
 namespace Learning\Warranty\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
@@ -44,7 +43,7 @@ class MassDelete extends Action
         return $this->resultFactory->create(ResultFactory::TYPE_REDIRECT)->setPath('*/*/index');
     }
 
-    public function isAllowed()
+    public function _isAllowed()
     {
         return $this->_authorization->isAllowed('Magento_Sales::warranty');
     }

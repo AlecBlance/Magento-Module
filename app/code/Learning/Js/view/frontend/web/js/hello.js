@@ -1,8 +1,9 @@
 define([
     "jquery"
-], function ($) {
+], function($){
         "use strict";
-        return function (config, element) {
+        return function(config, element) {
             alert(config.message);
         }
-})
+    }
+)

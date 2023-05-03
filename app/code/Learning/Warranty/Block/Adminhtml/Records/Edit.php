@@ -4,24 +4,22 @@ namespace Learning\Warranty\Block\Adminhtml\Records;
 
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
-    protected $coreRegistry = null;
+    
+    protected $_coreRegistry = null;
 
-    public function __construct(
-        \Magento\Backend\Block\Widget\Context $context,
-        \Magento\Framework\Registry $registry,
-        array $data = []
-    ) {
-        $this->coreRegistry = $registry;
+    public function __construct(\Magento\Backend\Block\Widget\Context $context, \Magento\Framework\Registry $registry, array $data = [])
+    {
+        $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
     }
 
-    protected function __construct()
+    protected function _construct()
     {
         $this->_objectId = 'warranty_id';
         $this->_blockGroup = 'Learning_Warranty';
         $this->_controller = 'adminhtml_records';
         parent::_construct();
-        if ($this->isAllowedAction('Magento_Sales::warranty')) {
+        if ($this->_isAllowedAction('Magento_Sales::warranty')) {
             $this->buttonList->update('save', 'label', __('Save'));
         } else {
             $this->buttonList->remove('save');
@@ -34,7 +32,7 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         return __('Edit Warranty');
     }
 
-    protected function isAllowedAction($resourceId)
+    protected function _isAllowedAction($resourceId)
     {
         return $this->_authorization->isAllowed($resourceId);
     }

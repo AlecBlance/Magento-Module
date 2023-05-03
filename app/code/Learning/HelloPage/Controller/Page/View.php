@@ -14,10 +14,10 @@ class View extends Action
 
      protected $resultJsonFactory;
 
-    public function __construct(
+     public function __construct(
         Context $context,
-        JsonFactory $resultJsonFactory
-    ) {
+        JsonFactory $resultJsonFactory)
+    {
         $this->resultJsonFactory = $resultJsonFactory;
         parent::__construct($context);
     }
