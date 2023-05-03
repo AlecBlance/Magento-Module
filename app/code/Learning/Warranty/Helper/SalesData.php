@@ -2,8 +2,8 @@
 
 namespace Learning\Warranty\Helper;
 
-use \Magento\Framework\App\Helper\AbstractHelper;
-use \Learning\Warranty\Model\ResourceModel\Sales\CollectionFactory as SalesCollectionFactory;
+use Magento\Framework\App\Helper\AbstractHelper;
+use Learning\Warranty\Model\ResourceModel\Sales\CollectionFactory as SalesCollectionFactory;
 
 
 class SalesData extends AbstractHelper

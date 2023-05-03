@@ -2,7 +2,9 @@
 
 namespace Learning\Warranty\Model\Source;
 
-class Approved implements \Magento\Framework\Option\ArrayInterface
+use Magento\Framework\Option\ArrayInterface;
+
+class Approved implements ArrayInterface
 {
     
     public function toOptionArray()

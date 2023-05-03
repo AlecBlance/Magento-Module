@@ -7,6 +7,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 use Learning\Warranty\Model\RecordsFactory;
+use Magento\Framework\Registry;
 
 class Edit extends Action
 {
@@ -21,7 +22,7 @@ class Edit extends Action
         Context $context,
         PageFactory $rawFactory,
         RecordsFactory $_recordsFactory,
-        \Magento\Framework\Registry $coreRegistry
+        Registry $coreRegistry
     )
     {
         $this->pageFactory = $rawFactory;

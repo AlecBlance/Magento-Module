@@ -13,8 +13,9 @@ use Magento\Framework\DataObject;
 use Learning\Warranty\Helper\SalesData; 
 use Learning\Warranty\Helper\WarrantyData; 
 use Learning\Warranty\Helper\EmailData; 
+use Magento\Framework\App\Action\Action;
 
-class Post extends \Magento\Framework\App\Action\Action implements HttpPostActionInterface
+class Post extends Action implements HttpPostActionInterface
 {
 
     private $dataPersistor;

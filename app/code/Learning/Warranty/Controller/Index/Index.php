@@ -15,15 +15,13 @@ class Index extends Action
         PageFactory $resultPageFactory,
     ) {
         $this->_resultPageFactory = $resultPageFactory;
-        parent::__construct(
-            $context
-        );
+        parent::__construct($context);
     }
 
     public function execute()
     {
        $resultPage = $this->_resultPageFactory->create();
-       $resultPage->addHandle('warranty_index_index'); //loads the layout of module_custom_customlayout.xml file with its name
+       $resultPage->addHandle('warranty_index_index'); 
        return $resultPage;
     }
 }

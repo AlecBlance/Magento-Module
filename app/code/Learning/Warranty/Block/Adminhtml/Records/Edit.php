@@ -2,12 +2,19 @@
 
 namespace Learning\Warranty\Block\Adminhtml\Records;
 
+use Magento\Backend\Block\Widget\Context;
+use Magento\Framework\Registry;
+
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
     
     protected $_coreRegistry = null;
 
-    public function __construct(\Magento\Backend\Block\Widget\Context $context, \Magento\Framework\Registry $registry, array $data = [])
+    public function __construct(
+        Context $context,
+        Registry $registry,
+        array $data = []
+    )
     {
         $this->_coreRegistry = $registry;
         parent::__construct($context, $data);

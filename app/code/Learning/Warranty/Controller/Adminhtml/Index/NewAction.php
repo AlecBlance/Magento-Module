@@ -7,21 +7,20 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 use Learning\Warranty\Model\RecordsFactory;
+use Magento\Framework\Registry;
 
 class NewAction extends Action
 {
    
     private $pageFactory;
-
     protected $_recordsFactory;
-
     private $coreRegistry;
 
     public function __construct(
         Context $context,
         PageFactory $rawFactory,
         RecordsFactory $_recordsFactory,
-        \Magento\Framework\Registry $coreRegistry
+        Registry $coreRegistry
     )
     {
         $this->pageFactory = $rawFactory;

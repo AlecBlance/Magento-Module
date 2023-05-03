@@ -2,9 +2,10 @@
 
 namespace Learning\Warranty\Helper;
 
-use \Magento\Framework\App\Helper\AbstractHelper;
-use \Learning\Warranty\Model\RecordsFactory as RecordsFactory;
-use \Learning\Warranty\Model\ResourceModel\Records\CollectionFactory as RecordsCollectionFactory;
+use Magento\Framework\App\Helper\AbstractHelper;
+use Learning\Warranty\Model\RecordsFactory as RecordsFactory;
+use Learning\Warranty\Model\ResourceModel\Records\CollectionFactory as RecordsCollectionFactory;
+use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 
 
 class WarrantyData extends AbstractHelper
@@ -18,7 +19,7 @@ class WarrantyData extends AbstractHelper
     public function __construct(
         RecordsFactory $recordsFactory,
         RecordsCollectionFactory $recordsCollectionFactory,
-        \Magento\Framework\Stdlib\DateTime\TimezoneInterface $date
+        TimezoneInterface $date
     )
     {
         $this->date = $date;

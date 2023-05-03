@@ -7,6 +7,8 @@ use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\Translate\Inline\StateInterface;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Area;
 
 class EmailData extends AbstractHelper
 {
@@ -49,9 +51,9 @@ class EmailData extends AbstractHelper
             $from = ['email' => $fromEmail, 'name' => $fromName];
             $this->inlineTranslation->suspend();
 
-            $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+            $storeScope = ScopeInterface::SCOPE_STORE;
             $templateOptions = [
-                'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
+                'area' => Area::AREA_FRONTEND,
                 'store' => $storeId
             ];
             $transport = $this->transportBuilder->setTemplateIdentifier($templateId, $storeScope)
@@ -84,9 +86,9 @@ class EmailData extends AbstractHelper
             $from = ['email' => $fromEmail, 'name' => $fromName];
             $this->inlineTranslation->suspend();
 
-            $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+            $storeScope = ScopeInterface::SCOPE_STORE;
             $templateOptions = [
-                'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
+                'area' => Area::AREA_FRONTEND,
                 'store' => $storeId
             ];
             $transport = $this->transportBuilder->setTemplateIdentifier($templateId, $storeScope)

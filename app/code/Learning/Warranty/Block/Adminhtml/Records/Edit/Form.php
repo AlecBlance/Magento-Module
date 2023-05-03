@@ -2,7 +2,14 @@
 
 namespace Learning\Warranty\Block\Adminhtml\Records\Edit;
 
-class Form extends \Magento\Backend\Block\Widget\Form\Generic
+use Magento\Backend\Block\Widget\Form\Generic;
+use Magento\Backend\Block\Template\Context;
+use Magento\Framework\Registry;
+use Magento\Framework\Data\FormFactory;
+use Magento\Cms\Model\Wysiwyg\Config;
+use Learning\Warranty\Model\Source\Approved;
+
+class Form extends Generic
 {
 
     protected $_systemStore;
@@ -10,11 +17,11 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     protected $_approved;
 
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\Data\FormFactory $formFactory,
-        \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,
-        \Learning\Warranty\Model\Source\Approved $approved,
+        Context $context,
+        Registry $registry,
+        FormFactory $formFactory,
+        Config $wysiwygConfig,
+        Approved $approved,
         array $data = []
     )
     {
@@ -26,13 +33,28 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     protected function _prepareForm()
     {
         $model = $this->_coreRegistry->registry('row_data');
-        $form = $this->_formFactory->create(['data' => ['id' => 'edit_form', 'enctype' => 'multipart/form-data', 'action' => $this->getData('action'), 'method' => 'post']]);
+        $form = $this->_formFactory->create(
+            ['data' => [
+                'id' => 'edit_form',
+                'enctype' => 'multipart/form-data',
+                'action' => $this->getData('action'),
+                'method' => 'post']
+            ]
+        );
         $form->setHtmlIdPrefix('learning_warranty');
         if ($model) {
-            $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Warranty Details'), 'class' => 'fieldset-wide']);
+            $fieldset = $form->addFieldset(
+                'base_fieldset',
+                ['legend' => __('Warranty Details'),
+                'class' => 'fieldset-wide']
+            );
             $fieldset->addField('warranty_id', 'hidden', ['name' => 'warranty_id']);
         } else {
-            $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Warranty Details'), 'class' => 'fieldset-wide']);
+            $fieldset = $form->addFieldset(
+                'base_fieldset',
+                ['legend' => __('Warranty Details'),
+                'class' => 'fieldset-wide']
+            );
         }
         $fieldset->addField(
             'order_id',

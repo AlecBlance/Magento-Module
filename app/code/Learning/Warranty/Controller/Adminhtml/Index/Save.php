@@ -3,6 +3,7 @@
 namespace Learning\Warranty\Controller\Adminhtml\Index;
 
 use Learning\Warranty\Model\RecordsFactory;
+use Magento\Backend\App\Action\Context;
 
 class Save extends \Magento\Backend\App\Action
 {
@@ -10,7 +11,7 @@ class Save extends \Magento\Backend\App\Action
     protected $_recordsFactory;
 
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
+        Context $context,
         RecordsFactory $recordsFactory
     )
     {

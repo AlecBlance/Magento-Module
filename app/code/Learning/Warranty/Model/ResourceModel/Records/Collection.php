@@ -1,13 +1,15 @@
 <?php
 namespace Learning\Warranty\Model\ResourceModel\Records;
 
-use \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Learning\Warranty\Model\Records as RecordsModel;
+use Learning\Warranty\Model\ResourceModel\Records as RecordsResource;
 
 class Collection extends AbstractCollection
 {
 
     protected function _construct()
     {
-        $this->_init(\Learning\Warranty\Model\Records::class, \Learning\Warranty\Model\ResourceModel\Records::class);
+        $this->_init(RecordsModel::class, RecordsResource::class);
     }
 }

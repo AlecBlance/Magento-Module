@@ -6,6 +6,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
 use Learning\Warranty\Model\ResourceModel\Records\CollectionFactory;
+use Learning\Warranty\Model\RecordsFactory;
 
 class MassDelete extends Action
 {
@@ -17,7 +18,7 @@ class MassDelete extends Action
         Context $context,
         Filter $filter,
         CollectionFactory $collectionFactory,
-        \Learning\Warranty\Model\RecordsFactory $recordsFactory
+        RecordsFactory $recordsFactory
     ) {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
