@@ -8,15 +8,8 @@ use \Learning\Warranty\Api\Data\SalesInterface;
 
 class Sales extends AbstractModel implements SalesInterface, IdentityInterface
 {
-    /**
-     * Cache tag
-     */
     const CACHE_TAG = 'learning_warranty_sales';
 
-    /**
-     * Post Initialization
-     * @return void
-     */
     protected function _construct()
     {
         $this->_init('Learning\Warranty\Model\ResourceModel\Sales');

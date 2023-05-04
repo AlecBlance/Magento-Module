@@ -8,15 +8,9 @@ use \Learning\Warranty\Api\Data\RecordsInterface;
 
 class Records extends AbstractModel implements RecordsInterface, IdentityInterface
 {
-    /**
-     * Cache tag
-     */
+    
     const CACHE_TAG = 'learning_warranty_records';
 
-    /**
-     * Post Initialization
-     * @return void
-     */
     protected function _construct()
     {
         $this->_init('Learning\Warranty\Model\ResourceModel\Records');

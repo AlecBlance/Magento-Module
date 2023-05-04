@@ -31,11 +31,10 @@ class EmailData extends AbstractHelper
 
     public function sendEmail($data)
     {
-        // this is an example and you can change template id,fromEmail,toEmail,etc as per your need.
-        $templateId = 'customer_confirmation'; // template id
-        $fromEmail = 'blancealec1@gmail.com';  // sender Email id
-        $fromName = 'Admin';             // sender Name
-        $toEmail =  $data['email']; // receiver email id
+        $templateId = 'customer_confirmation'; 
+        $fromEmail = 'blancealec1@gmail.com';  
+        $fromName = 'Admin'; 
+        $toEmail =  $data['email']; 
 
         try {
             // template variables pass here
@@ -71,11 +70,10 @@ class EmailData extends AbstractHelper
 
     public function notifyAdmin()
     {
-        // this is an example and you can change template id,fromEmail,toEmail,etc as per your need.
-        $templateId = 'admin_notification'; // template id
-        $fromEmail = 'blancealec1@gmail.com';  // sender Email id
-        $fromName = 'Notifier';             // sender Name
-        $toEmail =  'blancealec1@gmail.com'; // receiver email id
+        $templateId = 'admin_notification'; 
+        $fromEmail = 'blancealec1@gmail.com';
+        $fromName = 'Notifier';
+        $toEmail =  'blancealec1@gmail.com'; 
 
         try {
 
