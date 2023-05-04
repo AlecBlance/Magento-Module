@@ -1,4 +1,5 @@
 <?php
+
 namespace Learning\Warranty\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
@@ -7,7 +8,6 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-
     protected $_resultPageFactory;
 
     public function __construct(
@@ -20,8 +20,8 @@ class Index extends Action
 
     public function execute()
     {
-       $resultPage = $this->_resultPageFactory->create();
-       $resultPage->addHandle('warranty_index_index'); 
-       return $resultPage;
+        $resultPage = $this->_resultPageFactory->create();
+        $resultPage->addHandle('warranty_index_index');
+        return $resultPage;
     }
 }

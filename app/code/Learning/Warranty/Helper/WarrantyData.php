@@ -7,10 +7,8 @@ use Learning\Warranty\Model\RecordsFactory as RecordsFactory;
 use Learning\Warranty\Model\ResourceModel\Records\CollectionFactory as RecordsCollectionFactory;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 
-
 class WarrantyData extends AbstractHelper
 {
-
     protected $_recordsFactory = null;
     protected $_recordsCollectionFactory = null;
     protected $date;
@@ -20,8 +18,7 @@ class WarrantyData extends AbstractHelper
         RecordsFactory $recordsFactory,
         RecordsCollectionFactory $recordsCollectionFactory,
         TimezoneInterface $date
-    )
-    {
+    ) {
         $this->date = $date;
         $this->_recordsFactory  = $recordsFactory;
         $this->_recordsCollectionFactory  = $recordsCollectionFactory;
@@ -34,14 +31,14 @@ class WarrantyData extends AbstractHelper
         return $recordsCollection->getItems();
     }
 
-    public function setRecord($record) 
+    public function setRecord($record)
     {
         $recordsCollection = $this->_recordsFactory ->create();
         $result = $recordsCollection->setData($record);
         $result->save();
     }
 
-    public function isUnvalidatedPresent() 
+    public function isUnvalidatedPresent()
     {
         $recordsCollection = $this->_recordsCollectionFactory ->create();
         $date = $this->date->date()->modify('-1 day')->format('Y-m-d H:i:s');
@@ -52,17 +49,16 @@ class WarrantyData extends AbstractHelper
         return $recordsCollection->count();
     }
 
-    public function setNotified() 
+    public function setNotified()
     {
-        foreach($this->unvalidated as $record) {
+        foreach ($this->unvalidated as $record) {
             $record->setNotified();
             $record->save();
         }
     }
 
-    public function getUnvalidated() 
+    public function getUnvalidated()
     {
         return $this->unvalidated;
     }
-
 }

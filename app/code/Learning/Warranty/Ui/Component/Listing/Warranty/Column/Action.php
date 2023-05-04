@@ -9,7 +9,6 @@ use Magento\Framework\UrlInterface;
 
 class Action extends Column
 {
-
     protected $urlBuilder;
 
     public function __construct(
@@ -18,8 +17,7 @@ class Action extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = []
-    ) 
-    {
+    ) {
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }

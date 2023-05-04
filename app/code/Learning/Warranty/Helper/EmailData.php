@@ -21,8 +21,7 @@ class EmailData extends AbstractHelper
         TransportBuilder $transportBuilder,
         StoreManagerInterface $storeManager,
         StateInterface $state
-    )
-    {
+    ) {
         $this->transportBuilder = $transportBuilder;
         $this->storeManager = $storeManager;
         $this->inlineTranslation = $state;
@@ -31,10 +30,10 @@ class EmailData extends AbstractHelper
 
     public function sendEmail($data)
     {
-        $templateId = 'customer_confirmation'; 
-        $fromEmail = 'blancealec1@gmail.com';  
-        $fromName = 'Admin'; 
-        $toEmail =  $data['email']; 
+        $templateId = 'customer_confirmation';
+        $fromEmail = 'blancealec1@gmail.com';
+        $fromName = 'Admin';
+        $toEmail =  $data['email'];
 
         try {
             // template variables pass here
@@ -70,13 +69,12 @@ class EmailData extends AbstractHelper
 
     public function notifyAdmin()
     {
-        $templateId = 'admin_notification'; 
+        $templateId = 'admin_notification';
         $fromEmail = 'blancealec1@gmail.com';
         $fromName = 'Notifier';
-        $toEmail =  'blancealec1@gmail.com'; 
+        $toEmail =  'blancealec1@gmail.com';
 
         try {
-
             $templateVars = [];
 
             $storeId = $this->storeManager->getStore()->getId();

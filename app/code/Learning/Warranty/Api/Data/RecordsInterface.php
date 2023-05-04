@@ -1,9 +1,9 @@
 <?php
+
 namespace Learning\Warranty\Api\Data;
 
 interface RecordsInterface
 {
-
     const WARRANTY_ID         = 'warranty_id';
     const ORDER_ID            = 'order_id';
     const SKU                 = 'sku';

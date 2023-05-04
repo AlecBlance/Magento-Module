@@ -11,7 +11,6 @@ use Magento\Framework\Registry;
 
 class Edit extends Action
 {
-
     private $pageFactory;
 
     protected $_recordsFactory;
@@ -23,8 +22,7 @@ class Edit extends Action
         PageFactory $rawFactory,
         RecordsFactory $_recordsFactory,
         Registry $coreRegistry
-    )
-    {
+    ) {
         $this->pageFactory = $rawFactory;
         $this->_recordsFactory = $_recordsFactory;
         $this->coreRegistry = $coreRegistry;

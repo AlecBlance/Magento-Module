@@ -7,15 +7,13 @@ use Magento\Framework\Registry;
 
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
-    
     protected $_coreRegistry = null;
 
     public function __construct(
         Context $context,
         Registry $registry,
         array $data = []
-    )
-    {
+    ) {
         $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
     }

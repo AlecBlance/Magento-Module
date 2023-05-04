@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 declare(strict_types=1);
 
 namespace Learning\ClothingMaterial\Setup\Patch\Data;
@@ -15,8 +17,6 @@ use Learning\ClothingMaterial\Model\Attribute\Source\Material as Source;
 use Learning\ClothingMaterial\Model\Attribute\Backend\Material as Backend;
 use Magento\Catalog\Model\Product;
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
-
-
 
 /**
 * Patch is mechanism, that allows to do atomic upgrade data changes

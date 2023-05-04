@@ -11,7 +11,6 @@ use Learning\Warranty\Model\Source\Approved;
 
 class Form extends Generic
 {
-
     protected $_systemStore;
 
     protected $_approved;
@@ -23,8 +22,7 @@ class Form extends Generic
         Config $wysiwygConfig,
         Approved $approved,
         array $data = []
-    )
-    {
+    ) {
         $this->_wysiwygConfig = $wysiwygConfig;
         $this->_approved = $approved;
         parent::__construct($context, $registry, $formFactory, $data);

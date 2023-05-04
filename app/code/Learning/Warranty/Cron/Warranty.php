@@ -6,10 +6,8 @@ use Learning\Warranty\Helper\WarrantyData;
 use Learning\Warranty\Helper\EmailData;
 use Magento\Framework\Notification\NotifierInterface as NotifierPool;
 
-
 class Warranty
 {
-
     protected $warrantyHelper;
     protected $emailHelper;
     protected $notifierPool;
@@ -18,19 +16,20 @@ class Warranty
         WarrantyData $warrantyHelper,
         EmailData $emailHelper,
         NotifierPool $notifierPool
-    ) 
-    {
+    ) {
         $this->notifierPool = $notifierPool;
         $this->warrantyHelper = $warrantyHelper;
         $this->emailHelper = $emailHelper;
     }
 
-	public function execute()
-	{
+    public function execute()
+    {
         $unvalidated = $this->warrantyHelper->isUnvalidatedPresent();
-        if (!$unvalidated) return;
+        if (!$unvalidated) {
+            return;
+        }
         $this->emailHelper->notifyAdmin();
         $this->warrantyHelper->setNotified();
         return $this;
-	}
+    }
 }

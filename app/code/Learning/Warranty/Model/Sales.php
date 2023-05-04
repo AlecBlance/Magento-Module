@@ -2,9 +2,9 @@
 
 namespace Learning\Warranty\Model;
 
-use \Magento\Framework\Model\AbstractModel;
-use \Magento\Framework\DataObject\IdentityInterface;
-use \Learning\Warranty\Api\Data\SalesInterface;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\DataObject\IdentityInterface;
+use Learning\Warranty\Api\Data\SalesInterface;
 
 class Sales extends AbstractModel implements SalesInterface, IdentityInterface
 {
@@ -15,7 +15,7 @@ class Sales extends AbstractModel implements SalesInterface, IdentityInterface
         $this->_init('Learning\Warranty\Model\ResourceModel\Sales');
     }
 
-    public function getSku() 
+    public function getSku()
     {
         return $this->getData(self::SKU);
     }
@@ -34,5 +34,4 @@ class Sales extends AbstractModel implements SalesInterface, IdentityInterface
     {
         return [self::CACHE_TAG . '_' . $this->getItemId()];
     }
-
 }

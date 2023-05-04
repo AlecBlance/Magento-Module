@@ -6,7 +6,6 @@ use Magento\Framework\Option\ArrayInterface;
 
 class Approved implements ArrayInterface
 {
-    
     public function toOptionArray()
     {
         return [

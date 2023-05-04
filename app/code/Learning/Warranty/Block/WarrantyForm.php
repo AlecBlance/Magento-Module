@@ -7,12 +7,10 @@ use Magento\Framework\View\Element\Template\Context;
 
 class WarrantyForm extends Template
 {
-
     public function __construct(
         Context $context,
         array $data = []
-    )
-    {
+    ) {
         parent::__construct($context, $data);
         $this->_isScopePrivate = true;
     }

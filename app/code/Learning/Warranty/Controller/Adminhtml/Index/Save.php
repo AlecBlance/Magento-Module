@@ -7,14 +7,12 @@ use Magento\Backend\App\Action\Context;
 
 class Save extends \Magento\Backend\App\Action
 {
-    
     protected $_recordsFactory;
 
     public function __construct(
         Context $context,
         RecordsFactory $recordsFactory
-    )
-    {
+    ) {
         $this->_recordsFactory = $recordsFactory;
         parent::__construct($context);
     }
